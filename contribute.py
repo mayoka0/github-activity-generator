@@ -21,6 +21,8 @@ def main(def_args=sys.argv[1:]):
         directory = repository[start:end]
     no_weekends = args.no_weekends
     frequency = args.frequency
+    if not 0 <= frequency <= 100:
+        sys.exit('frequency must be between 0 and 100')
     days_before = args.days_before
     if days_before < 0:
         sys.exit('days_before must not be negative')

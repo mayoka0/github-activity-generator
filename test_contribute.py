@@ -5,6 +5,12 @@ from subprocess import check_output
 
 class TestContribute(unittest.TestCase):
 
+    def test_frequency_out_of_range(self):
+        with self.assertRaises(SystemExit):
+            contribute.main(['-fr=101'])
+        with self.assertRaises(SystemExit):
+            contribute.main(['-fr=-1'])
+
     def test_arguments(self):
         args = contribute.arguments(['-nw'])
         self.assertTrue(args.no_weekends)
