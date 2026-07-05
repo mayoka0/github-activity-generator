@@ -11,6 +11,12 @@ class TestContribute(unittest.TestCase):
         with self.assertRaises(SystemExit):
             contribute.main(['-fr=-1'])
 
+    def test_max_commits_out_of_range(self):
+        with self.assertRaises(SystemExit):
+            contribute.main(['-mc=0'])
+        with self.assertRaises(SystemExit):
+            contribute.main(['-mc=21'])
+
     def test_arguments(self):
         args = contribute.arguments(['-nw'])
         self.assertTrue(args.no_weekends)

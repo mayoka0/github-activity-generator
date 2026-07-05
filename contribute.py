@@ -23,6 +23,9 @@ def main(def_args=sys.argv[1:]):
     frequency = args.frequency
     if not 0 <= frequency <= 100:
         sys.exit('frequency must be between 0 and 100')
+    max_commits = args.max_commits
+    if not 1 <= max_commits <= 20:
+        sys.exit('max_commits must be between 1 and 20')
     days_before = args.days_before
     if days_before < 0:
         sys.exit('days_before must not be negative')
